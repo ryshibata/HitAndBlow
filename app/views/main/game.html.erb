@@ -1,0 +1,70 @@
+<body>
+	<div class="board">
+		<h1>ヒット・アンド・ブロー</h1>
+		<% for i in 1..10 do %>
+			<div class="vertical-area">
+				<%= i.to_s+"." %>
+				<div class="result-area">
+					<% if NumberData.getCount() >= i %>
+					<div class="result-item">
+						hit:<%= @data.getHitArray(i) %>
+					</div>
+					<div class="result-item">
+						blow:<%= @data.getBlowArray(i) %>
+					</div>
+					<% end %>
+				</div>
+
+				<div class="selected-area">
+					<% if NumberData.getCount() >= i %>
+						<% for j in 0..3 do %>
+							<div class="selected-item">
+								<%= @data.getInputArray(i)[j] %>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+		<div class="vertical-area">
+			<div class="answer-area">
+				<% if @endState =~ /(win|lose)/ %>
+					<% for j in 0..3 do %>
+						<div class="answer-item">
+							<%= NumberData.getRandomArray()[j] %>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+
+		<% if @endState !~ /(win|lose)/ %>
+			<%= form_tag("/main/update") do %>
+				<div class="input-area">
+					<input name="inputNum">
+					<input type="submit" value="入力完了">
+				</div>
+			<% end %>
+			<% else %>
+				<%= form_tag("/main/game", method: :GET) do %>
+				<div class="input-area">
+					<input type="submit" value="リトライ">
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<h2>ルール</h2>
+	<p>ピンク色の四角に隠されている４桁の数字を当てるゲームです。</p>
+	<p>テキストエリアに４桁の数字を入力し「入力完了」を押すと、</p>
+	<p>数字も場所も合っている場合、Hitがカウントされます。</p>
+	<p>数字は合っているが、場所が違っている場合、Blowがカウントされます。</p>
+	<br>
+	<p>(例)隠されている数字が「1234」で、あなたが「1452」と入力したら、</p>
+	<p>1は数字も場所も合っているのでHitは1、</p>
+	<p>4と2は数字は合っているが、場所は違っているのでBlowは2です。</p>
+	<p>HitとBlowをヒントにして、隠されている数字を当ててください。</p>
+	<br>
+	<p>入力は必ず4けたの半角数字にしてください。</p>
+	<p>各桁は1～9の数字で、重複はありません。</p>
+</body>

@@ -1,0 +1,91 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.board {
+  width: 1320px;
+  height: 550px;
+  background-image: image-url('backimage.jpg');
+  background-color:rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+  border: solid 2px #000000;
+  border-radius: 10px;
+}
+
+.vertical-area {
+  width:120px;
+  height: 380px;
+  float:left;
+  margin-top:30px;
+}
+
+.result-area {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f8ff;
+  margin: 10px;
+  border: solid 2px #000000;
+  border-radius: 10px;
+}
+
+.result-item {
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+}
+
+.selected {
+  width:1080px;
+  height: 220px;
+  background-color: #dddddd;
+}
+
+.selected-area {
+  width: 100px;
+  height: 200px;
+  background-color: #f0f8ff;
+  margin: 10px;
+  border: solid 2px #000000;
+  border-radius: 10px;
+}
+
+.selected-item {
+  width: 10px;
+  height: 10px;
+  padding: 15px 40px;
+}
+
+.answer-area {
+  width: 100px;
+  height: 200px;
+  background-color: #ffc0cb;
+  margin: 10px;
+  margin-top:148px;
+  border: solid 2px #000000;
+  border-radius: 10px;
+}
+
+.answer-item {
+  width: 10px;
+  height: 10px;
+  padding: 15px 40px;
+}
+
+.input-area {
+  margin: 30px 10px;
+  clear: left;
+}
+
+
+.flash {
+  width: 1320px;
+  padding: 10px 0;
+  color: white;
+  background: rgb(251, 170, 88);
+  text-align: center;
+  position: absolute;
+  top: 75px;
+  z-index: 10;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}
